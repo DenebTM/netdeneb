@@ -9,8 +9,8 @@
 	fi
 ) &
 (
-    cd /srv/netdeneb/git
-    git pull | grep -v 'up to date' || true
+    cd /srv/netdeneb
+    git pull --recurse-submodules | grep -v 'up to date' || true
 )
 
 wait
