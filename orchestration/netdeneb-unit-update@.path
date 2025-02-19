@@ -2,7 +2,7 @@
 Description=Reload systemd and restart '%I' when changed
 
 [Path]
-PathChanged=/srv/netdeneb/%I
+PathChanged=/srv/netdeneb/orchestration/%I
 
 [Install]
 WantedBy=paths.target
