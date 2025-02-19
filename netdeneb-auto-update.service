@@ -1,0 +1,8 @@
+[Unit]
+Description=leggi.es: check for ghcr image update
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=netdeneb
+ExecStart=/srv/netdeneb/auto-update.sh

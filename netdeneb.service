@@ -1,0 +1,30 @@
+[Unit]
+Description=leggi.es (main)
+
+[Service]
+User=netdeneb
+Restart=on-failure
+WorkingDirectory=/srv/netdeneb
+ExecStart=/usr/bin/podman run --name netdeneb \
+	-d --rm --replace \
+	--sdnotify=conmon \
+	--cgroups=no-conmon \
+	--label "io.containers.autoupdate=registry" \
+	-e APP_CONFIG_PATH=/config/config.json \
+	-e HOST=:: \
+	-e PORT=3001 \
+	-p 3001:3001 \
+	-v ./config:/config:ro \
+	-v ./static:/app/static:ro \
+	ghcr.io/denebtm/netdeneb:latest
+ExecStop=/usr/bin/podman stop -i netdeneb
+
+ExecStopPost=-/usr/bin/podman rm -f netdeneb
+
+Type=notify
+NotifyAccess=all
+Delegate=yes
+Environment=PODMAN_SYSTEMD_UNIT=%n
+
+[Install]
+WantedBy=default.target

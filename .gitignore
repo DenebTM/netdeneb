@@ -1,0 +1,4 @@
+files
+static/**
+!static/robots.txt
+!static/.well-known/**

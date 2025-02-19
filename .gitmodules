@@ -1,0 +1,6 @@
+[submodule "app"]
+	path = app
+	url = https://github.com/DenebTM/netdeneb-sveltekit.git
+[submodule "gm-thumbgen"]
+	path = gm-thumbgen
+	url = https://github.com/DenebTM/gm-thumbgen.git

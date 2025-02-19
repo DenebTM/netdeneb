@@ -1,0 +1,15 @@
+[Unit]
+Description=leggi.es (thumbnails)
+
+[Service]
+User=netdeneb
+WorkingDirectory=/srv/netdeneb
+ExecStart=/usr/bin/node gm-thumbgen/build/bundle.js \
+	-b 3002 \
+	-i ./files/ \
+	-o ./static/thumbs/
+ReadOnlyPaths=/srv/netdeneb/files/
+ReadWritePaths=/srv/netdeneb/static/thumbs/
+
+[Install]
+WantedBy=multi-user.target

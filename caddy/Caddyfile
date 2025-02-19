@@ -1,0 +1,59 @@
+(logformat) {
+  log {
+    output stdout
+    format console
+  }
+}
+
+{
+  auto_https off
+}
+
+http://files.leggi.es:3000 {
+  root /srv/netdeneb/files
+  encode gzip zstd
+
+  import logformat
+  import caddy-auth.conf
+
+  templates
+
+  route {
+    file_server {
+      browse browse-thumbs.html
+      pass_thru
+    }
+
+    reverse_proxy /thumbs/* localhost:3002
+  }
+}
+
+:3000 {
+  root * /srv/netdeneb/static
+  encode gzip zstd
+
+  import logformat
+
+  # redirect old urls
+  handle_path /files/* {
+    redir //files.leggi.es{uri} 308
+  }
+  handle_path /ftpfile/* {
+    redir //files.leggi.es{uri} 308
+  }
+  handle_path /getfile/* {
+    redir //files.leggi.es{uri} 308
+  }
+
+  route {
+    root /srv/netdeneb/static
+
+    # serve existing files in /img, /art and /thumbs
+    file_server {
+      pass_thru
+    }
+
+    # pass everything else to reverse proxy
+    reverse_proxy localhost:3001
+  }
+}
