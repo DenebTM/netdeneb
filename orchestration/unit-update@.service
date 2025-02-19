@@ -1,0 +1,7 @@
+[Unit]
+Description=Reload systemd and restart '%I'
+
+[Service]
+Type=oneshot
+ExecStart=systemctl daemon-reload
+ExecStart=systemctl restart %I

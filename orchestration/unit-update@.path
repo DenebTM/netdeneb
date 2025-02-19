@@ -1,0 +1,8 @@
+[Unit]
+Description=Reload systemd and restart '%I' when changed
+
+[Path]
+PathChanged=/srv/netdeneb/%I
+
+[Install]
+WantedBy=paths.target
