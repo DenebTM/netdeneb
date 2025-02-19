@@ -1,5 +1,5 @@
 [Unit]
-Description=leggi.es: check for ghcr image update
+Description=leggi.es: check for updates
 After=network-online.target
 
 [Service]

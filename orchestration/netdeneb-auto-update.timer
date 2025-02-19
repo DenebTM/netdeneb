@@ -1,5 +1,5 @@
 [Unit]
-Description=Netdeneb: Every minute, check for Docker image update
+Description=leggi.es: periodically check for updates
 
 [Timer]
 OnCalendar=*:*
