@@ -18,7 +18,6 @@ ExecStart=/usr/bin/podman run --name netdeneb \
 	-v ./static:/app/static:ro \
 	ghcr.io/denebtm/netdeneb:latest
 ExecStop=/usr/bin/podman stop -i netdeneb
-
 ExecStopPost=-/usr/bin/podman rm -f netdeneb
 
 Type=notify
