@@ -1,0 +1,22 @@
+{
+  "sonas": [
+    {
+      "name": "deneb",
+      "gender": "\u0000",
+      "pronouns": "they/them",
+      "species": "maned wolf",
+      "description": "leggy! in natural colours with purple mane. collar preferred",
+      "ref": "https://netdeneb.com/art/deneb_ref.png",
+      "avatar": "https://www.netdeneb.com/art/parker.png",
+      "colors": [
+        "#c23c00",
+        "#732200",
+        "#ffe4d2",
+        "#8923b8",
+        "#392a21",
+        "#f5d710"
+      ]
+    }
+  ]
+}
+

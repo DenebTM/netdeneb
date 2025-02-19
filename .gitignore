@@ -1,4 +1,5 @@
-files
-static/**
-!static/robots.txt
-!static/.well-known/**
+/files
+/static/**/*
+!/static/robots.txt
+!/static/.well-known/
+!/static/.well-known/**/*
