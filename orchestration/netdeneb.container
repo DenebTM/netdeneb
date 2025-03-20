@@ -1,0 +1,27 @@
+[Container]
+ContainerName=netdeneb
+Image=ghcr.io/denebtm/netdeneb:latest
+#RunInit=true
+PublishPort=3001:3001
+ReadOnly=true
+NoNewPrivileges=true
+DropCapability=ALL
+#AddCapability=SETUID SETGID CHOWN KILL
+HealthCmd=curl -sfo/dev/null http://127.0.0.1:3001
+HealthInterval=30s
+HealthRetries=3
+Volume=/srv/netdeneb/app-config.json:/app/config.json:ro
+Volume=/srv/netdeneb/static:/app/static:ro
+Environment=HOST=::
+Environment=PORT=3001
+Environment=APP_CONFIG_PATH=/app/config.json
+
+[Service]
+TasksMax=50
+MemoryHigh=256M
+Restart=on-failure
+
+[Install]
+# enables the service to start at system boot
+# see: https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html#enabling-unit-files
+WantedBy=default.target

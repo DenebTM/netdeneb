@@ -3,3 +3,6 @@
 !/static/robots.txt
 !/static/.well-known/
 !/static/.well-known/**/*
+
+.*
+!.gitignore

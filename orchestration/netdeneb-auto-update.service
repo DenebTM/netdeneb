@@ -4,5 +4,4 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-User=netdeneb
 ExecStart=/srv/netdeneb/scripts/auto-update.sh

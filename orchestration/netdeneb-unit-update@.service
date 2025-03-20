@@ -3,5 +3,5 @@ Description=Reload systemd and restart '%I'
 
 [Service]
 Type=oneshot
-ExecStart=systemctl daemon-reload
-ExecStart=systemctl restart %I
+ExecStart=systemctl --user daemon-reload
+ExecStart=systemctl --user restart %I

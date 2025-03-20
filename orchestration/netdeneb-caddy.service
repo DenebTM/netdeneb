@@ -3,11 +3,10 @@ Description=leggi.es (reverse proxy)
 
 [Service]
 Type=notify
-User=netdeneb
 Restart=on-failure
 WorkingDirectory=/srv/netdeneb/caddy
 ExecStart=/usr/bin/caddy run \
 	--config /srv/netdeneb/caddy/Caddyfile
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
