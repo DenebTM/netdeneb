@@ -3,7 +3,9 @@
 	image_name="ghcr.io/denebtm/netdeneb:latest"
 	old_id="$(podman image inspect "$image_name" | jq -r '.[0].Id')"
 	podman pull "$image_name"
-	if [ "$(podman container inspect netdeneb | jq -r '.[0].Image')" != "$old_id" ]; then
+	new_id="$(podman image inspect "$image_name" | jq -r '.[0].Id')"
+	#if [ "$(podman container inspect netdeneb | jq -r '.[0].Image')" != "$old_id" ]; then
+	if [ "$new_id" != "$old_id" ]; then
 		echo "restarting container"
 		systemctl --user daemon-reload
 		systemctl --user restart netdeneb.service
