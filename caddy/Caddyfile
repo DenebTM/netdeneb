@@ -20,7 +20,7 @@ http://files.leggi.es:3000 {
 
   route {
     file_server {
-      browse browse-thumbs.html
+      browse caddy/browse-thumbs.html
       pass_thru
     }
 
