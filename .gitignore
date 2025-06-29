@@ -1,8 +1,5 @@
 /files
-/static/**/*
-!/static/robots.txt
-!/static/.well-known/
-!/static/.well-known/**/*
-
+/static/thumbs
+/static/art
 .*
 !.gitignore

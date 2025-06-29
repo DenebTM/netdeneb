@@ -10,7 +10,7 @@
 }
 
 http://files.leggi.es:3000 {
-  root /srv/netdeneb/files
+  root ./files
   encode gzip zstd
 
   import logformat
@@ -29,7 +29,7 @@ http://files.leggi.es:3000 {
 }
 
 :3000 {
-  root * /srv/netdeneb/static
+  root * ./static
   encode gzip zstd
 
   import logformat
@@ -46,7 +46,7 @@ http://files.leggi.es:3000 {
   }
 
   route {
-    root /srv/netdeneb/static
+    root ./static
 
     # serve existing files in /img, /art and /thumbs
     file_server {
