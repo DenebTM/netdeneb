@@ -10,6 +10,7 @@ DropCapability=ALL
 HealthCmd=CMD-SHELL curl --fail http://127.0.0.1:3001 || exit 1
 HealthInterval=1m
 HealthRetries=3
+AutoUpdate=registry
 Volume=/srv/netdeneb/app-config.json:/app/config.json:ro
 Volume=/srv/netdeneb/static:/app/static:ro
 Environment=HOST=::
